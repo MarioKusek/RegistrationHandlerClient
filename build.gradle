@@ -27,6 +27,12 @@ plugins {
     id "maven-publish"
 }
 
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:Dalston.SR4"
+    }
+}
+
 group = 'eu.h2020.symbiote'
 version = '0.0.1-SNAPSHOT'
 
@@ -82,9 +88,9 @@ configurations.all {
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter')
-    compile('org.hibernate:hibernate-validator')
+    compile('org.springframework.cloud:spring-cloud-starter-eureka')
+    compile('org.springframework.cloud:spring-cloud-starter-feign')
     
-
     //compile('eu.h2020.symbiote:SymbIoTeLibraries:4.+') { changing = true }
     compile('com.github.symbiote-h2020:SymbIoTeLibraries:4.+') { changing = true }
     
